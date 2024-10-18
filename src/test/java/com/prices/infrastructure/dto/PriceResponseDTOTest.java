@@ -1,6 +1,5 @@
 package com.prices.infrastructure.dto;
 
-import com.prices.infrastructure.dto.PriceResponseDTO;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
