@@ -46,6 +46,10 @@ Se han realizado 3 tests principales:
 
 **Test Funcional** contenido en la clase **PricesControllerTest**. Prueba que el controlador devuelve respuestas válidas. Implementa los 5 tests que se incluyen en el ejercicio, uno genérico y otro para la cobertura de la excepción personalizada. Requiere inicializar la base de datos con el método *setUpDatabase*
 
+Dichos tests realizan la cobertura de la totalidad del código, a excepción de la clase principal **Main** y de la excepción general que cubre errores diferentes al personalizado.
+
+![alt text](https://github.com/jgalvaro/Prices/blob/main/assets/coverage.PNG?raw=true)
+
 ### Funcionalidad
 
 Se han hecho con Postman apuntando directamente al endpoint creado. Las peticiones creadas son:
