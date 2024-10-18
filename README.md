@@ -50,6 +50,16 @@ Dichos tests realizan la cobertura de la totalidad del código, a excepción de 
 
 ![alt text](https://github.com/jgalvaro/Prices/blob/main/assets/coverage.PNG?raw=true)
 
+Se ha añadido una conexión con Sonarqube. Para activarla, debemos introducir el token en la propiedad *sonar.login*. No se proporciona para evitar subir un token directamente por temas de seguridad. 
+
+El resultado de la ejecución automática de Sonarqube cuando se sube el código a Git es el siguiente.
+
+![alt text](https://github.com/jgalvaro/Prices/blob/main/assets/sonarGIT.PNG?raw=true)
+
+Al lanzarlo desde la máquina local, el resultado es este.
+
+![alt text](https://github.com/jgalvaro/Prices/blob/main/assets/sonarLOCAL.PNG?raw=true)
+
 ### Funcionalidad
 
 Se han hecho con Postman apuntando directamente al endpoint creado. Las peticiones creadas son:
