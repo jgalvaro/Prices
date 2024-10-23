@@ -1,53 +1,66 @@
 package com.prices.infrastructure.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
 public class PriceResponseDTO {
-    private Integer product_id;
-    private Integer brand_id;
-    private Integer price_list;
-    private LocalDateTime application_date;
+
+    @JsonProperty("product_id")
+    private Integer productId;
+
+    @JsonProperty("brand_id")
+    private Integer brandId;
+
+    @JsonProperty("price_list")
+    private Integer priceList;
+
+    @JsonProperty("application_date")
+    private LocalDateTime applicationDate;
+
+    @JsonProperty("price")
     private double price;
 
-
-    public PriceResponseDTO(Integer product_id, Integer brand_id, Integer price_list, LocalDateTime application_date, double price) {
-        this.product_id = product_id;
-        this.brand_id = brand_id;
-        this.price_list = price_list;
-        this.application_date = application_date;
+    // Constructor con camelCase
+    public PriceResponseDTO(Integer productId, Integer brandId, Integer priceList, LocalDateTime applicationDate, double price) {
+        this.productId = productId;
+        this.brandId = brandId;
+        this.priceList = priceList;
+        this.applicationDate = applicationDate;
         this.price = price;
     }
 
-    public Integer getProduct_id() {
-        return product_id;
+    // Getters y Setters en camelCase
+    public Integer getProductId() {
+        return productId;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
-    public Integer getBrand_id() {
-        return brand_id;
+    public Integer getBrandId() {
+        return brandId;
     }
 
-    public void setBrand_id(Integer brand_id) {
-        this.brand_id = brand_id;
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
     }
 
-    public Integer getPrice_list() {
-        return price_list;
+    public Integer getPriceList() {
+        return priceList;
     }
 
-    public void setPrice_list(Integer price_list) {
-        this.price_list = price_list;
+    public void setPriceList(Integer priceList) {
+        this.priceList = priceList;
     }
 
-    public LocalDateTime getApplication_date() {
-        return application_date;
+    public LocalDateTime getApplicationDate() {
+        return applicationDate;
     }
 
-    public void setApplication_date(LocalDateTime application_date) {
-        this.application_date = application_date;
+    public void setApplicationDate(LocalDateTime applicationDate) {
+        this.applicationDate = applicationDate;
     }
 
     public double getPrice() {

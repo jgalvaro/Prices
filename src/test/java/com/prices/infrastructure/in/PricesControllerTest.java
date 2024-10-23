@@ -5,18 +5,13 @@ import com.prices.domain.Prices;
 import com.prices.infrastructure.in.controller.PricesController;
 import com.prices.infrastructure.out.persistence.repository.PricesJPARepository;
 import jakarta.persistence.EntityManager;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
-
-
 import java.time.LocalDateTime;
-import java.util.Arrays;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -26,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(PricesController.class)
 @TestPropertySource(locations = "classpath:application-test.properties")
-public class PricesControllerTest {
+class PricesControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -42,9 +37,7 @@ public class PricesControllerTest {
 
 
     @Test
-    public void shouldReturnPricesForValidRequest() throws Exception {
-        //doNothing().when(pricesService).initDatabase();
-
+    void shouldReturnPricesForValidRequest() throws Exception {
         Prices mockPrice = new Prices(1,1,
                                         LocalDateTime.of(2024, 10, 17, 19, 0),
                                         LocalDateTime.of(2024, 10, 18, 19, 0),
@@ -63,7 +56,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testGetPrice1() throws Exception {
+    void testGetPrice1() throws Exception {
         // Datos simulados de respuesta
         Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 35.50, "EUR");
@@ -84,7 +77,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testGetPrice2() throws Exception {
+    void testGetPrice2() throws Exception {
         // Datos simulados de respuesta
         Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 25.45, "EUR");
@@ -105,7 +98,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testGetPrice3() throws Exception {
+    void testGetPrice3() throws Exception {
         // Datos simulados de respuesta
         Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 35.50, "EUR");
@@ -126,7 +119,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testGetPrice4() throws Exception {
+    void testGetPrice4() throws Exception {
         // Datos simulados de respuesta
         Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 30.5, "EUR");
@@ -147,7 +140,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testGetPrice5() throws Exception {
+    void testGetPrice5() throws Exception {
         // Datos simulados de respuesta
         Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
                 LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 38.95, "EUR");
@@ -168,10 +161,7 @@ public class PricesControllerTest {
     }
 
     @Test
-    public void testOtherException() throws Exception {
-        // Datos simulados de respuesta
-        Prices mockPrice = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
-                LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 38.95, "EUR");
+    void testOtherException() throws Exception {
 
         when(pricesService.findApplicablePrice(any(), any(), any())).thenReturn(null);
 
@@ -181,23 +171,5 @@ public class PricesControllerTest {
                         .param("product_id", "1")
                         .param("brand_id", "1"))
                 .andExpect(status().isNotFound());
-    }
-
-    @BeforeEach
-    public void setUpDatabase() {
-        // Limpiar la base de datos antes de cada test
-        pricesJPARepository.deleteAll();
-
-        // Inicializar la base de datos con precios de ejemplo
-        Prices price1 = new Prices(1, 1, LocalDateTime.parse("2020-06-14T00:00:00"),
-                LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 0, 35.50, "EUR");
-        Prices price2 = new Prices(1, 1, LocalDateTime.parse("2020-06-14T15:00:00"),
-                LocalDateTime.parse("2020-06-14T18:30:00"), 35455, 1, 25.45, "EUR");
-        Prices price3 = new Prices(1, 1, LocalDateTime.parse("2020-06-15T00:00:00"),
-                LocalDateTime.parse("2020-06-15T11:00:00"), 35455, 1, 30.50, "EUR");
-        Prices price4 = new Prices(1, 1, LocalDateTime.parse("2020-06-15T16:00:00"),
-                LocalDateTime.parse("2020-12-31T23:59:59"), 35455, 1, 38.95, "EUR");
-
-        pricesJPARepository.saveAll(Arrays.asList(price1, price2, price3, price4));
     }
 }

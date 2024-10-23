@@ -11,20 +11,20 @@ public class Prices {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "PRODUCT_ID")
-    private Integer product_id;
-
     @Column(name = "BRAND_ID")
-    private Integer brand_id;
+    private Integer brandId;
 
     @Column(name = "START_DATE")
-    private LocalDateTime start_date;
+    private LocalDateTime startDate;
 
     @Column(name = "END_DATE")
-    private LocalDateTime end_date;
+    private LocalDateTime endDate;
+
+    @Column(name = "PRODUCT_ID")
+    private Integer productId;
 
     @Column(name = "PRICE_LIST")
-    private Integer price_list;
+    private Integer priceList;
 
     @Column(name = "PRIORITY")
     private Integer priority;
@@ -38,12 +38,12 @@ public class Prices {
     public Prices() {
     }
 
-    public Prices(Integer product_id, Integer brand_id, LocalDateTime start_date, LocalDateTime end_date, Integer price_list, Integer priority, double price, String curr) {
-        this.product_id = product_id;
-        this.brand_id = brand_id;
-        this.start_date = start_date;
-        this.end_date = end_date;
-        this.price_list = price_list;
+    public Prices(Integer productId, Integer brandId, LocalDateTime startDate, LocalDateTime endDate, Integer priceList, Integer priority, double price, String curr) {
+        this.productId = productId;
+        this.brandId = brandId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.priceList = priceList;
         this.priority = priority;
         this.price = price;
         this.curr = curr;
@@ -53,24 +53,24 @@ public class Prices {
         return id;
     }
 
-    public LocalDateTime getStart_date() {
-        return start_date;
+    public LocalDateTime getStartDate() {
+        return startDate;
     }
 
-    public Integer getBrand_id() {
-        return brand_id;
+    public Integer getBrandId() {
+        return brandId;
     }
 
-    public LocalDateTime getEnd_date() {
-        return end_date;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public Integer getPrice_list() {
-        return price_list;
+    public Integer getPriceList() {
+        return priceList;
     }
 
-    public Integer getProduct_id() {
-        return product_id;
+    public Integer getProductId() {
+        return productId;
     }
 
     public double getPrice() {
@@ -88,24 +88,25 @@ public class Prices {
     public void setId(Integer id) {
         this.id = id;
     }
-    public void setStart_date(LocalDateTime start_date) {
-        this.start_date = start_date;
+
+    public void setStartDate(LocalDateTime startDate) {
+        this.startDate = startDate;
     }
 
-    public void setBrand_id(Integer brand_id) {
-        this.brand_id = brand_id;
+    public void setBrandId(Integer brandId) {
+        this.brandId = brandId;
     }
 
-    public void setEnd_date(LocalDateTime end_date) {
-        this.end_date = end_date;
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
-    public void setPrice_list(Integer price_list) {
-        this.price_list = price_list;
+    public void setPriceList(Integer priceList) {
+        this.priceList = priceList;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public void setPriority(Integer priority) {

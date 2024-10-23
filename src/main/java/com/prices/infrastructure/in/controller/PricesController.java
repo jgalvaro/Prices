@@ -4,7 +4,6 @@ import com.prices.application.services.PricesService;
 import com.prices.domain.Prices;
 import com.prices.infrastructure.dto.PriceResponseDTO;
 import com.prices.infrastructure.in.exception.exceptions.PriceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,6 @@ import java.time.LocalDateTime;
 @RequestMapping("/prices")
 public class PricesController{
 
-    @Autowired
     private final PricesService pricesService;
 
     public PricesController(PricesService pricesService) {
@@ -26,16 +24,15 @@ public class PricesController{
     }
 
     @GetMapping("/getPrices")
-    public ResponseEntity getPrices(@RequestParam("application_date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime application_date,
-                                    @RequestParam("product_id")Integer product_id,
-                                    @RequestParam("brand_id")Integer brand_id){
-        Prices price = this.pricesService.findApplicablePrice(application_date,product_id,brand_id);
+    public ResponseEntity<PriceResponseDTO> getPrices(@RequestParam("application_date") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applicationDate,
+                                    @RequestParam("product_id")Integer productId,
+                                    @RequestParam("brand_id")Integer brandId){
+        Prices price = this.pricesService.findApplicablePrice(applicationDate,productId,brandId);
         if (price == null) {
-            throw new PriceNotFoundException("Precio no encontrado para la fecha: " + application_date);
+            throw new PriceNotFoundException("Precio no encontrado para la fecha: " + applicationDate);
         }
-        PriceResponseDTO responseDTO = new PriceResponseDTO(price.getProduct_id(), price.getBrand_id(),
-                price.getPrice_list(), application_date, price.getPrice());
+        PriceResponseDTO responseDTO = new PriceResponseDTO(price.getProductId(), price.getBrandId(),
+                price.getPriceList(), applicationDate, price.getPrice());
         return ResponseEntity.ok(responseDTO);
     }
-
 }

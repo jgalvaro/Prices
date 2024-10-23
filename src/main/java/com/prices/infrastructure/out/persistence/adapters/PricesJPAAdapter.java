@@ -23,8 +23,8 @@ public class PricesJPAAdapter implements PricesRepository {
     }
 
     @Override
-    public Prices findApplicablePrice(LocalDateTime application_date, Integer product_id, Integer brand_id) {
-        return repository.findApplicablePrice(application_date,product_id,brand_id);
+    public Prices findApplicablePrice(LocalDateTime applicationDate, Integer productId, Integer brandId) {
+        return repository.findApplicablePrice(applicationDate,productId,brandId);
     }
 
 }

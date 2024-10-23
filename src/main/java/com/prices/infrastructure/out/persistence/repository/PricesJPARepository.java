@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 @Repository
 public interface PricesJPARepository extends JpaRepository<Prices,Integer> {
 
-    @Query("SELECT p FROM Prices p \n" +
-            "WHERE :application_date BETWEEN p.start_date AND p.end_date \n" +
-            "AND p.product_id = :product_id \n" +
-            "AND p.brand_id = :brand_id \n" +
-            "ORDER BY p.priority DESC \n" +
-            "LIMIT 1")
-    Prices findApplicablePrice(@Param("application_date") LocalDateTime application_date,
-                                      @Param("product_id") Integer productId,
-                                      @Param("brand_id") Integer brandId);
-
+    @Query("""
+            SELECT p FROM Prices p  
+            WHERE :applicationDate BETWEEN p.startDate AND p.endDate
+            AND p.productId = :productId
+            AND p.brandId = :brandId
+            ORDER BY p.priority DESC
+            LIMIT 1""")
+    Prices findApplicablePrice(@Param("applicationDate") LocalDateTime applicationDate,
+                                      @Param("productId") Integer productId,
+                                      @Param("brandId") Integer brandId);
 }

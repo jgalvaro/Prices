@@ -65,23 +65,23 @@ Al lanzarlo desde la máquina local, el resultado es este.
 Se han hecho con Postman apuntando directamente al endpoint creado. Las peticiones creadas son:
 
 ```
-	http://localhost:8080/prices/getPrices?application_date=2020-06-14T10:00:00&product_id=1&brand_id=1
+	http://localhost:8080/prices/getPrices?application_date=2020-06-14T10:00:00&product_id=35455&brand_id=1
 ```
 
 ```
-	http://localhost:8080/prices/getPrices?application_date=2020-06-14T16:00:00&product_id=1&brand_id=1
+	http://localhost:8080/prices/getPrices?application_date=2020-06-14T16:00:00&product_id=35455&brand_id=1
 ```
 
 ```
-	http://localhost:8080/prices/getPrices?application_date=2020-06-14T21:00:00&product_id=1&brand_id=1
+	http://localhost:8080/prices/getPrices?application_date=2020-06-14T21:00:00&product_id=35455&brand_id=1
 ```
 
 ```
-	http://localhost:8080/prices/getPrices?application_date=2020-06-15T10:00:00&product_id=1&brand_id=1
+	http://localhost:8080/prices/getPrices?application_date=2020-06-15T10:00:00&product_id=35455&brand_id=1
 ```
 
 ```
-	http://localhost:8080/prices/getPrices?application_date=2020-06-16T21:00:00&product_id=1&brand_id=1
+	http://localhost:8080/prices/getPrices?application_date=2020-06-16T21:00:00&product_id=35455&brand_id=1
 ```
 
 Un ejemplo del resultado de la primera petición es:

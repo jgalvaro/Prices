@@ -13,14 +13,14 @@ public class GlobalExceptionHandler {
 
     // Manejo de la excepción personalizada PriceNotFoundException
     @ExceptionHandler(PriceNotFoundException.class)
-    public ResponseEntity<?> handlePriceNotFoundException(PriceNotFoundException ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handlePriceNotFoundException(PriceNotFoundException ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(HttpStatus.NOT_FOUND, ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
     }
 
     // Manejo de cualquier otra excepción genérica
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> handleGlobalException(Exception ex, WebRequest request) {
+    public ResponseEntity<ErrorDetails> handleGlobalException(Exception ex, WebRequest request) {
         ErrorDetails errorDetails = new ErrorDetails(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
     }

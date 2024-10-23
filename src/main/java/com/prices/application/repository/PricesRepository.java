@@ -7,7 +7,7 @@ import com.prices.domain.Prices;
 
 public interface PricesRepository {
 
-    Prices findApplicablePrice(LocalDateTime date, Integer product_id, Integer brand_id);
+    Prices findApplicablePrice(LocalDateTime applicationDate, Integer productId, Integer brandId);
 
     void saveAll(List<Prices> prices);
 }
