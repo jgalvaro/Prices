@@ -1,4 +1,4 @@
-package com.prices.domain;
+package com.prices.domain.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

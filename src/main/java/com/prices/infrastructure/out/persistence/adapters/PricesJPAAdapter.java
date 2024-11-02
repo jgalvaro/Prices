@@ -1,7 +1,7 @@
 package com.prices.infrastructure.out.persistence.adapters;
 
-import com.prices.domain.Prices;
-import com.prices.application.repository.PricesRepository;
+import com.prices.domain.model.Prices;
+import com.prices.domain.repository.PricesRepository;
 import com.prices.infrastructure.out.persistence.repository.PricesJPARepository;
 import org.springframework.stereotype.Component;
 

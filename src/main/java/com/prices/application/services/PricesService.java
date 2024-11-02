@@ -1,7 +1,7 @@
 package com.prices.application.services;
 
-import com.prices.domain.Prices;
-import com.prices.application.repository.PricesRepository;
+import com.prices.domain.model.Prices;
+import com.prices.domain.repository.PricesRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

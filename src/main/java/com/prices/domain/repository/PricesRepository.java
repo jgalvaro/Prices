@@ -1,9 +1,9 @@
-package com.prices.application.repository;
+package com.prices.domain.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.prices.domain.Prices;
+import com.prices.domain.model.Prices;
 
 public interface PricesRepository {
 

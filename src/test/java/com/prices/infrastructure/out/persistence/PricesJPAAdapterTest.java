@@ -1,6 +1,6 @@
 package com.prices.infrastructure.out.persistence;
 
-import com.prices.domain.Prices;
+import com.prices.domain.model.Prices;
 import com.prices.infrastructure.out.persistence.adapters.PricesJPAAdapter;
 import com.prices.infrastructure.out.persistence.repository.PricesJPARepository;
 import org.junit.jupiter.api.Test;

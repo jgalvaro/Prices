@@ -1,7 +1,7 @@
 package com.prices.infrastructure.in;
 
 import com.prices.application.services.PricesService;
-import com.prices.domain.Prices;
+import com.prices.domain.model.Prices;
 import com.prices.infrastructure.in.controller.PricesController;
 import com.prices.infrastructure.out.persistence.repository.PricesJPARepository;
 import jakarta.persistence.EntityManager;

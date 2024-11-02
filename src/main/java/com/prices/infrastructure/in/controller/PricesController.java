@@ -1,7 +1,7 @@
 package com.prices.infrastructure.in.controller;
 
 import com.prices.application.services.PricesService;
-import com.prices.domain.Prices;
+import com.prices.domain.model.Prices;
 import com.prices.infrastructure.dto.PriceResponseDTO;
 import com.prices.infrastructure.in.exception.exceptions.PriceNotFoundException;
 import org.springframework.format.annotation.DateTimeFormat;

@@ -1,6 +1,6 @@
 package com.prices.infrastructure.out.persistence.repository;
 
-import com.prices.domain.Prices;
+import com.prices.domain.model.Prices;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
